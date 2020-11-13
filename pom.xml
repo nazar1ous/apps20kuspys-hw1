@@ -24,6 +24,12 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.16</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -87,7 +93,7 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>3.5</version>
                 <configuration>
-                    <linkXref>true</linkXref>
+<!--                    <linkXref>true</linkXref>-->
                     <sourceEncoding>UTF8</sourceEncoding>
                     <minimumTokens>30</minimumTokens>
                     <targetJdk>1.7</targetJdk>
