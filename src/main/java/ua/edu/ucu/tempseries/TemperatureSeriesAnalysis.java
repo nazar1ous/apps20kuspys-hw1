@@ -154,13 +154,13 @@ public class TemperatureSeriesAnalysis {
         if (prevLen < numElements + temps.length) {
             temperatureSeries = copyArrayWithLen(this.temperatureSeries,
                     prevLen * 2 + temps.length, numElements);
-            int counter = numElements;
-            for (double t: temps) {
-                temperatureSeries[counter] = t;
-                counter++;
-            }
-            numElements = counter;
         }
+        int counter = numElements;
+        for (double t: temps) {
+            temperatureSeries[counter] = t;
+            counter++;
+        }
+        numElements = counter;
         return 0;
     }
 
