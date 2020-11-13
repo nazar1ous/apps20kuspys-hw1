@@ -149,7 +149,8 @@ public class TemperatureSeriesAnalysis {
                 this.min(), this.max());
     }
 
-    public int addTemps(double...temps) throws IllegalArgumentException {
+    public double addTemps(double...temps) throws IllegalArgumentException {
+        checkValidSeries();
         int prevLen = temperatureSeries.length;
         if (prevLen < numElements + temps.length) {
             temperatureSeries = copyArrayWithLen(this.temperatureSeries,
@@ -161,7 +162,11 @@ public class TemperatureSeriesAnalysis {
             counter++;
         }
         numElements = counter;
-        return 0;
+        double sum = 0;
+        for (int i = 0; i < numElements; ++i){
+            sum += temperatureSeries[i];
+        }
+        return sum;
     }
 
     static public double[] copyArrayWithLen(double[] arr,
