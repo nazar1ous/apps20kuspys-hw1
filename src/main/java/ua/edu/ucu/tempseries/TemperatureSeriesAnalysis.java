@@ -13,7 +13,7 @@ public class TemperatureSeriesAnalysis {
     private int numElements = 0;
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
-        for (double t : temperatureSeries) {
+        for (double t: temperatureSeries) {
             if (t < absZero) {
                 throw new InputMismatchException("There is no" +
                         " stated temperature less than absolute zero." +
@@ -145,13 +145,13 @@ public class TemperatureSeriesAnalysis {
                 this.min(), this.max());
     }
 
-    public int addTemps(double... temps) throws IllegalArgumentException {
+    public int addTemps(double...temps) throws IllegalArgumentException {
         int prevLen = temperatureSeries.length;
         if (prevLen < numElements + temps.length) {
             temperatureSeries = copyArrayWithLen(this.temperatureSeries,
                     prevLen * 2 + temps.length, numElements);
             int counter = numElements;
-            for (double t : temps) {
+            for (double t: temps) {
                 temperatureSeries[counter] = t;
                 counter++;
             }
