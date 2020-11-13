@@ -92,7 +92,7 @@ public class TemperatureSeriesAnalysis {
                 closestRange = tempRange;
                 closestValue = temperatureSeries[i];
             }
-            if (tempRange == closestRange) {
+            if (Math.abs(tempRange - closestRange) < 0.0000001) {
                 if (closestValue < temperatureSeries[i]) {
                     closestValue = temperatureSeries[i];
                 }
