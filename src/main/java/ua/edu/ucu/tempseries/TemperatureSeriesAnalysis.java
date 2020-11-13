@@ -2,15 +2,19 @@ package ua.edu.ucu.tempseries;
 
 import lombok.Getter;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.lang.Math;
 
 public class TemperatureSeriesAnalysis {
     final static double absZero = -273;
-    @Getter
     private double[] temperatureSeries;
     @Getter
     private int numElements = 0;
+
+    public double[] getTemperatureSeries() {
+        return Arrays.copyOf(temperatureSeries, temperatureSeries.length);
+    }
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
         for (double t: temperatureSeries) {
@@ -20,7 +24,7 @@ public class TemperatureSeriesAnalysis {
                         " Contact scientists");
             }
         }
-        this.temperatureSeries = temperatureSeries;
+        this.temperatureSeries = Arrays.copyOf(temperatureSeries, temperatureSeries.length);
         numElements = temperatureSeries.length;
     }
 
