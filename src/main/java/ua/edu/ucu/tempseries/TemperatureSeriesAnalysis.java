@@ -6,7 +6,7 @@ import java.util.InputMismatchException;
 import java.lang.Math;
 
 public class TemperatureSeriesAnalysis {
-    final double absZero = - 273;
+    final static double absZero = -273;
     @Getter
     private double[] temperatureSeries;
     @Getter
@@ -34,7 +34,7 @@ public class TemperatureSeriesAnalysis {
     public double average() throws IllegalArgumentException {
         checkValidSeries();
         double summa = 0;
-        for (int i = 0; i < numElements; ++ i) {
+        for (int i = 0; i < numElements; ++i) {
             summa += temperatureSeries[i];
         }
         return summa / numElements;
@@ -44,7 +44,7 @@ public class TemperatureSeriesAnalysis {
         checkValidSeries();
         double expectation = this.average();
         double diff = 0;
-        for (int i = 0; i < numElements; ++ i) {
+        for (int i = 0; i < numElements; ++i) {
             diff += Math.pow((temperatureSeries[i] - expectation), 2);
         }
         return Math.sqrt(diff / numElements);
@@ -53,7 +53,7 @@ public class TemperatureSeriesAnalysis {
     public double min() throws IllegalArgumentException {
         checkValidSeries();
         double min = temperatureSeries[0];
-        for (int i = 1; i < numElements; ++ i) {
+        for (int i = 1; i < numElements; ++i) {
             if (temperatureSeries[i] < min) {
                 min = temperatureSeries[i];
             }
@@ -64,7 +64,7 @@ public class TemperatureSeriesAnalysis {
     public double max() throws IllegalArgumentException {
         checkValidSeries();
         double max = temperatureSeries[0];
-        for (int i = 1; i < numElements; ++ i) {
+        for (int i = 1; i < numElements; ++i) {
             if (temperatureSeries[i] > max) {
                 max = temperatureSeries[i];
             }
@@ -82,7 +82,7 @@ public class TemperatureSeriesAnalysis {
         double closestValue = temperatureSeries[0];
         double closestRange = Math.abs(closestValue - tempValue);
         double tempRange;
-        for (int i = 1; i < numElements; ++ i) {
+        for (int i = 1; i < numElements; ++i) {
             tempRange = Math.abs(temperatureSeries[i] - tempValue);
             if (tempRange < closestRange) {
                 closestRange = tempRange;
@@ -101,7 +101,7 @@ public class TemperatureSeriesAnalysis {
             throws IllegalArgumentException {
         checkValidSeries();
         int len = 0;
-        for (int i = 0; i < numElements; ++ i) {
+        for (int i = 0; i < numElements; ++i) {
             if (temperatureSeries[i] < tempValue) {
                 len += 1;
             }
@@ -109,7 +109,7 @@ public class TemperatureSeriesAnalysis {
 
         double[] tempLess = new double[len];
         int count = 0;
-        for (int i = 0; i < numElements; ++ i) {
+        for (int i = 0; i < numElements; ++i) {
             if (temperatureSeries[i] < tempValue) {
                 tempLess[count] = temperatureSeries[i];
                 count++;
@@ -122,14 +122,14 @@ public class TemperatureSeriesAnalysis {
             throws IllegalArgumentException {
         checkValidSeries();
         int len = 0;
-        for (int i = 0; i < numElements; ++ i) {
+        for (int i = 0; i < numElements; ++i) {
             if (temperatureSeries[i] > tempValue) {
                 len += 1;
             }
         }
         double[] tempGreat = new double[len];
         int count = 0;
-        for (int i = 0; i < numElements; ++ i) {
+        for (int i = 0; i < numElements; ++i) {
             if (temperatureSeries[i] > tempValue) {
                 tempGreat[count] = temperatureSeries[i];
                 count++;
