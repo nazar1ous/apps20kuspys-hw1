@@ -127,14 +127,14 @@ public class TemperatureSeriesAnalysis {
         checkValidSeries();
         int len = 0;
         for (int i = 0; i < numElements; ++i) {
-            if (temperatureSeries[i] > tempValue) {
+            if (temperatureSeries[i] >= tempValue) {
                 len += 1;
             }
         }
         double[] tempGreat = new double[len];
         int count = 0;
         for (int i = 0; i < numElements; ++i) {
-            if (temperatureSeries[i] > tempValue) {
+            if (temperatureSeries[i] >= tempValue) {
                 tempGreat[count] = temperatureSeries[i];
                 count++;
             }
