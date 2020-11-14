@@ -15,7 +15,7 @@ public class TemperatureSeriesAnalysis {
     public double[] getTemperatureSeries() {
         return Arrays.copyOf(temperatureSeries, temperatureSeries.length);
     }
-
+    public TemperatureSeriesAnalysis(){ temperatureSeries = new double[1];    }
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
         for (double t: temperatureSeries) {
             if (t < absZero) {
@@ -103,7 +103,7 @@ public class TemperatureSeriesAnalysis {
 
     public double[] findTempsLessThen(double tempValue)
             throws IllegalArgumentException {
-        checkValidSeries();
+//        checkValidSeries();
         int len = 0;
         for (int i = 0; i < numElements; ++i) {
             if (temperatureSeries[i] < tempValue) {
@@ -124,7 +124,7 @@ public class TemperatureSeriesAnalysis {
 
     public double[] findTempsGreaterThen(double tempValue)
             throws IllegalArgumentException {
-        checkValidSeries();
+//        checkValidSeries();
         int len = 0;
         for (int i = 0; i < numElements; ++i) {
             if (temperatureSeries[i] >= tempValue) {
@@ -150,7 +150,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double addTemps(double...temps) throws IllegalArgumentException {
-        checkValidSeries();
+//        checkValidSeries();
         int prevLen = temperatureSeries.length;
         if (prevLen < numElements + temps.length) {
             temperatureSeries = copyArrayWithLen(this.temperatureSeries,
